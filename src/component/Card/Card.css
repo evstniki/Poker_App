@@ -1,0 +1,28 @@
+/* Card.css */
+.card {
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin: 10px;
+  background-color: #f9f9f9;
+  width: 150px;
+  text-align: center;
+}
+
+.button {
+  background-color: #007bff;
+  color: rgb(233, 25, 25);
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}
+
+.read-the-docs {
+  font-size: 14px;
+  color: #666;
+}

@@ -1,35 +1,38 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState } from "react";
+import "./App.css";
+import Card from "./component/Card/Index";
+import { createDeck, shuffleDeck } from "./utils/deck";
+import { dealCards, determineWinner, Player } from "./utils/poker";
 
-function App() {
-  const [count, setCount] = useState(0)
+const App: React.FC = () => {
+  const [players, setPlayers] = useState<Player[]>([]);
+  const [winner, setWinner] = useState<Player | null>(null);
+
+  const startGame = () => {
+    let deck = createDeck();
+    deck = shuffleDeck(deck);
+    const dealtPlayers = dealCards(deck, 2, 5);
+    setPlayers(dealtPlayers);
+    const gameWinner = determineWinner(dealtPlayers);
+    setWinner(gameWinner);
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className='app'>
+      <button onClick={startGame}>Start Game</button>
+      <div className='cards-container'>
+        {players.map((player) => (
+          <div key={player.id}>
+            <h2>Player {player.id}</h2>
+            {player.hand.map((card, index) => (
+              <Card key={index} title={`${card.rank} of ${card.suit}`} />
+            ))}
+          </div>
+        ))}
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+      {winner && <h2>Winner: Player {winner.id}</h2>}
+    </div>
+  );
+};
 
-export default App
+export default App;
