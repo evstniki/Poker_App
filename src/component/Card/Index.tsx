@@ -2,13 +2,15 @@ import { Box } from "@mui/material";
 import "./Card.css";
 
 interface CardProps {
-  title: string;
+  rank: string;
+  suit: string;
 }
 
-const Card: React.FC<CardProps> = ({ title }) => {
+const Card: React.FC<CardProps> = ({ rank, suit }) => {
   return (
-    <Box>
-      <div className='card'>{title}</div>
+    <Box className='card'>
+      <div className='card-rank'>{rank}</div>
+      <div className={`card-suit ${suit.toLowerCase()}`}>{suit}</div>
     </Box>
   );
 };
