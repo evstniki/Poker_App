@@ -1,28 +1,33 @@
-/* Card.css */
 .card {
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  margin: 10px;
-  background-color: #f9f9f9;
-  width: 150px;
+  border: 1px solid #000;
+  border-radius: 5px;
+  padding: 10px;
+  width: 70px;
   text-align: center;
 }
 
-.button {
-  background-color: #007bff;
-  color: rgb(233, 25, 25);
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-  border-radius: 4px;
+.card-rank {
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 
-.button:hover {
-  background-color: #0056b3;
+.card-suit {
+  margin-top: 5px;
+  font-size: 1rem;
 }
 
-.read-the-docs {
-  font-size: 14px;
-  color: #666;
+.card-suit.hearts {
+  color: red;
+}
+
+.card-suit.diamonds {
+  color: red;
+}
+
+.card-suit.clubs {
+  color: black;
+}
+
+.card-suit.spades {
+  color: black;
 }
