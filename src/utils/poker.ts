@@ -25,7 +25,7 @@ export const dealCards = (
 };
 
 export const determineWinner = (players: Player[]): Player => {
-  // Simplified logic for determining the winner based on the highest card
+  // //Simplified logic for determining the winner based on the highest card
   const rankOrder: { [key in Rank]: number } = {
     "2": 2,
     "3": 3,
